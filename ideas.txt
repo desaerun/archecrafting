@@ -1,0 +1,18 @@
+"Create new Shopping List"
+"Open Saved Shopping List"
+
+List of items in DB or just how to get a recipe in general:
+
+Select item from item_db WHERE id='item_id'
+select each item from item_db WHERE parent_id=
+
+test recipe  			id 1
+tier 2 crafting mat		id 2
+tier 1 crafting mat	1	id 3
+tier 1 crafting mat 2	id 4
+
+		Test recipe
+		|			|
+	Tier 2x2		Tier 1_1x1
+		|	  	
+Tier 1_1x1 tier 1_2x2
