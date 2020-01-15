@@ -49,32 +49,51 @@ EOD;
 	}
 }
 
+
+
+
 function ingredientsArray($db,$item_id,$multiplier = 0)
 {
     $ingrs = [];
 
-    $stmt = "SELECT `id`,`name` FROM `items` WHERE `id`=? LIMIT 1";
+    $i = 0;
+    $j = 0;
+
+    $stmt = "SELECT `id`,`name`,`vendor_price`,`auction_price` FROM `items` WHERE `id`=? LIMIT 1";
+
     $query = $db->prepare($stmt);
     $query->execute([ $item_id ]);
-
-    $parent_item = $query->fetchAll();
-
-    echo "Parent item: " . print_r($parent_item,true);
+    $parent_item = $query->fetch();
 
     $ingrs['name'] = $parent_item['name'];
-    $ingrs['amount'] = 1;
+    $ingrs['amount'] = $craft['amount'];
 
-    $stmt = "SELECT `craft_links`.*,`crafts`.*,`craft_links`.`id`,`craft_links`.`child_item_id` AS `item_id`,`craft_links`.`amount`,`items`.`name`,`items`.`vendor_price`,`items`.`auction_price` FROM `craft_links` LEFT JOIN `crafts` ON `craft_links`.`craft_id`=`crafts`.`id` LEFT JOIN `items` ON `craft_links`.`child_item_id`=`items`.`id` WHERE `craft_links`.`craft_id`=?";
+    $stmt = "SELECT `crafts`.`id`,`crafts`.`name` FROM `crafts` LEFT JOIN `items` ON `crafts`.`crafted_item_id`=`items`.`id` WHERE `crafts`.`crafted_item_id`=?";
     $query = $db->prepare($stmt);
     $query->execute([ $item_id ]);
 
-    $ingrs_db = $query->fetchAll();
+    $crafts = $query->fetchAll();
+    foreach ($crafts as $craft) {
+        print_r($craft);
+        $stmt = "SELECT `craft_links`.*,`items`.`name`,`items`.`id` FROM `craft_links` LEFT JOIN `items` ON `craft_links`.`child_item_id`=`items`.`id` WHERE `craft_links`.`craft_id`=?";
 
-    if ($ingrs_db) {
-        foreach ($ingrs_db as $ingr_db) {
-            print_r($ingr_db);
-  //          $ingrs['crafts'][] = ingredientsArray($db, $ingr_db['id']);
-       }
+        $query = $db->prepare($stmt);
+        $query->execute([ $craft['id'] ]);
+
+        $reagents = $query->fetchAll();
+
+        //debug
+        echo "Stmt: {$stmt}  ::  {$craft['id']}<br />";
+        print_r($reagents);
+
+        foreach ($reagents as $reagent) {
+            print_r($reagent);
+            $ingrs[$i]['crafts'][$j]['amount'] = $reagent['amount'];
+            $ingrs[$i]['crafts'][$j] = ingredientsArray($db, $reagent['child_item_id']);
+
+            $j++;
+        }
+        $i++;
     }
     return $ingrs;
 }
