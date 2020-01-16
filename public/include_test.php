@@ -1,7 +1,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-<script src="js/item_tooltip.js" type="text/javascript"></script>
-<link rel="stylesheet" href="css/items.css" type="text/css" />
+<script src="public/js/item_tooltip.js" type="text/javascript"></script>
+<link rel="stylesheet" href="css/items.css" type="text/css"/>
 <script>
 
 </script>

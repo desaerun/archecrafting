@@ -7,5 +7,7 @@ require_once("Item.php");
 require_once("Reagent.php");
 
 $test_item = new Item($db, 16);
-print_r($test_item);
-print_r($test_item->getCraftsList());
+echo "<pre>";
+echo "ITEM: " . print_r($test_item, TRUE) . "\n";
+echo "ITEM->getCraftsList: " . print_r($test_item->getCraftsList(), TRUE) . "\n";
+echo "</pre>";
