@@ -6,26 +6,26 @@
 
 </script>
 <?php
-require_once("includes/db_connect.php");
-require_once("includes/functions.inc.php");
-require_once("includes/config.inc.php");
+require_once("../includes/db_connect.php");
+require_once("../includes/functions.inc.php");
+require_once("../includes/config.inc.php");
 ?>
 <div>
-Hello there. This is a cool.
-<?php
-itemIcon($db,"5");
-?>
-Item. And here's two more:
-<div>
-<?php
-itemIcon($db,"6");
-itemIcon($db,"24");
-?>
-</div>
+    Hello there. This is a cool.
+    <?php
+    itemIcon($db, "5");
+    ?>
+    Item. And here's two more:
+    <div>
+        <?php
+        itemIcon($db, "6");
+        itemIcon($db, "24");
+        ?>
+    </div>
 </div>
 <div id="outer">
-	Hello this is a test. Here's a cool item:
+    Hello this is a test. Here's a cool item:
     <div class="inner"></div>
-	<div class="item_icon inline_replace" data-item-id="6"></div>
-	Or maybe not.
+    <div class="item_icon inline_replace" data-item-id="6"></div>
+    Or maybe not.
 </div>

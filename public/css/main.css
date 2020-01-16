@@ -1,11 +1,13 @@
 body {
-	font-size:100%;
-	font-family: Verdana, Helvetica;
+    font-size: 100%;
+    font-family: Verdana, Helvetica;
 }
+
 .container {
-	display:inline-block;
-	border:1px solid black;
+    display: inline-block;
+    border: 1px solid black;
 }
+
 .item_container {
     background: #aaa;
     margin: 0px 1px;
@@ -18,6 +20,7 @@ body {
     flex: 1;
     position: relative;
 }
+
 .recipe_container {
     display: flex;
     /* background: green; */
@@ -27,28 +30,31 @@ body {
 
 
 .item_amount {
-	font-weight:bold;
-	font-family:Verdana;
-	font-size:small;
+    font-weight: bold;
+    font-family: Verdana;
+    font-size: small;
 }
 
 .item_icon,
 .item_box,
 .item_image {
-	width:38px;
-	height:38px;
+    width: 38px;
+    height: 38px;
 }
 
 .item_icon {
-	position: relative;
+    position: relative;
 }
+
 .item_box {
     position: absolute;
     cursor: pointer;
 }
+
 .grade {
-	
+
 }
+
 .item_label {
     display: flex;
     justify-content: center;
@@ -58,12 +64,13 @@ body {
     height: 100%;
     padding: 6px;
 }
+
 .item_image {
-	
+
 }
 
 .add_button {
-	font-family: Helvetica;
+    font-family: Helvetica;
     font-weight: bold;
     border: 1px solid black;
     /* position: absolute; */
@@ -78,6 +85,7 @@ body {
     cursor: pointer;
     /* margin-bottom: 3px; */
 }
+
 .add_button:hover {
-	background: #2f9e5c;
+    background: #2f9e5c;
 }

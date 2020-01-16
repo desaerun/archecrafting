@@ -1,12 +1,17 @@
 {
   "name": "desaerun/archecrafting",
   "description": "description_text",
-  "minimum-stability": "stable",
+  "minimum-stability": "dev",
   "license": "proprietary",
   "authors": [
     {
       "name": "Alex Jarvis",
       "email": "alex.j.jarvis@gmail.com"
     }
-  ]
+  ],
+  "autoload": {
+    "psr-4": {
+      "Core\\": "src/classes/Core"
+    }
+  }
 }
