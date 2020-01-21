@@ -2,6 +2,8 @@
 
 //header('Content-type: application/json');
 require_once("../includes/db_connect.php");
+require_once("../vendor/autoload.php");
+
 if (empty($_POST)) {
     $_POST = $_GET;
 }
@@ -10,13 +12,6 @@ if (!isset($_POST['search_str'])) {
     exit();
 }
 
-$search = "%" . $_POST['search_str'] . "%";
-$stmt = "SELECT `id`,`full_path` FROM `icons` WHERE `filename` LIKE ? OR `path` LIKE ?";
+$item_icons = new Core\Item\ItemIconList($db, $_POST['search_str']);
 
-$imgsq = $db->prepare($stmt);
-$imgsq->execute([$search, $search]);
-
-$imgs = $imgsq->fetchAll(PDO::FETCH_ASSOC);
-print_r($imgs);
-exit(json_encode($imgs));
-?>
+exit(json_encode($item_icons->getIcons()));

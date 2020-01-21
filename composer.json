@@ -13,5 +13,9 @@
     "psr-4": {
       "Core\\": "src/classes/Core"
     }
+  },
+  "require": {
+    "ext-pdo": "*",
+    "ext-json": "*"
   }
 }

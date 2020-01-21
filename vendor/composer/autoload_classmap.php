@@ -9,5 +9,6 @@ return array(
     'Core\\Item\\Craft' => $baseDir . '/src/classes/Core/Item/Craft.php',
     'Core\\Item\\CraftsList' => $baseDir . '/src/classes/Core/Item/CraftsList.php',
     'Core\\Item\\Item' => $baseDir . '/src/classes/Core/Item/Item.php',
+    'Core\\Item\\ItemIconList' => $baseDir . '/src/classes/Core/Item/ItemIconList.php',
     'Core\\Item\\Reagent' => $baseDir . '/src/classes/Core/Item/Reagent.php',
 );

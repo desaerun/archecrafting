@@ -2,21 +2,33 @@
 
 namespace Core\Item;
 
+use PDO;
+
 class Item
 {
     public $id;
     public $name;
     public $description;
     public $icon_id;
-    public $cool_line = "HELLO THIS IS A TEST OF A VERY LONG LING WITH LOTS OF PHP TEXT AND COOL STUFF AND GREAT THINGS AND LONG LINES OF TEXT HERE EXTENDING BEYOND THE 120 CHARACTER LIMIT ON LINES";
+    public $hide_grade;
+    public $icon_path;
+    public $grade;
+    public $vendor_price;
+    public $auction_price;
+    public $item_type;
+    public $temper;
+    public $amount;
     protected $db;
-    private $hide_grade;
-    private $icon_path;
+    /**
+     * @var CraftsList
+     */
+    private $crafts_list;
 
-    public function __construct(\PDO $db, $id)
+    public function __construct(PDO $db, $id, $amount = 1)
     {
         $this->db = $db;
         $this->id = $id;
+        $this->amount = $amount;
 
         $this->init();
     }
@@ -28,7 +40,7 @@ class Item
 
     protected function setItemInfo()
     {
-        $stmt = "SELECT `items`.*,`icons`.`full_path` AS `icon_full_path`,`icons`.`filename` AS `icon_filename` FROM `items`LEFT JOIN `icons` ON `items`.`icon_id` = `icons`.`id` WHERE `items`.`id`=? LIMIT 1";
+        $stmt = "SELECT `items`.*,`icons`.`full_path` AS `icon_full_path` FROM `items` LEFT JOIN `icons` ON `items`.`icon_id` = `icons`.`id` WHERE `items`.`id`=? LIMIT 1";
         $query = $this->db->prepare($stmt);
         $query->execute([$this->id]);
 
@@ -37,7 +49,7 @@ class Item
 
         $this->name = $item_info['name'];
         $this->description = $item_info['description'];
-        $this->icon_path = $item_info['icon_full_path'] . $item_info['icon_filename'];
+        $this->icon_path = $item_info['icon_full_path'];
 
         $this->hide_grade = $item_info['hide_grade'];
 
@@ -62,6 +74,7 @@ class Item
         return false;
     }
 
+
     public function getId()
     {
         return $this->id;
@@ -69,12 +82,26 @@ class Item
 
     public function getInfo()
     {
-        return $this->info;
+//        return $this->info;
     }
 
     public function getCraftsList()
     {
-        $crafts_list = new CraftsList($this->db, $this->id);
-        return $crafts_list;
+        $this->crafts_list = new CraftsList($this->db, $this->id);
+        return $this->crafts_list;
+    }
+
+    public function printIcon()
+    {
+        echo <<<HTML
+<div class="item_icon grade_{$this->grade} has_item_tooltip" data-item-id="{$this->id}">
+    <div class="item_grade grade_{$this->grade}">
+        <div class="item_image_wrapper">
+            <img src="{$this->icon_path}" alt="{$this->name}"/>
+            <div class="count">{$this->amount}</div>
+        </div>
+    </div>
+</div>
+HTML;
     }
 }

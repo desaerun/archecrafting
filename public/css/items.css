@@ -3,6 +3,75 @@
     src: url('../fonts/flareserif_roman.ttf');
 }
 
+.item_grade:after {
+    content: "";
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.item_grade.grade_1:after {
+    background: url("../images/item_grades/item_grade_1.png") no-repeat;
+    background-size: contain;
+}
+
+.item_grade.grade_2:after {
+    background: url("../images/item_grades/item_grade_2.png") no-repeat;
+    background-size: contain;
+}
+
+.item_grade.grade_3:after {
+    background: url("../images/item_grades/item_grade_3.png") no-repeat;
+    background-size: contain;
+}
+
+.item_grade.grade_4:after {
+    background: url("../images/item_grades/item_grade_4.png") no-repeat;
+    background-size: contain;
+}
+
+.item_grade.grade_5:after {
+    background: url("../images/item_grades/item_grade_5.png") no-repeat;
+    background-size: contain;
+}
+
+.item_grade.grade_6:after {
+    background: url("../images/item_grades/item_grade_6.png") no-repeat;
+    background-size: contain;
+}
+
+.item_grade.grade_7:after {
+    background: url("../images/item_grades/item_grade_7.png") no-repeat;
+    background-size: contain;
+}
+
+.item_grade.grade_8:after {
+    background: url("../images/item_grades/item_grade_8.png") no-repeat;
+    background-size: contain;
+}
+
+.item_grade.grade_9:after {
+    background: url("../images/item_grades/item_grade_9.png") no-repeat;
+    background-size: contain;
+}
+
+.item_grade.grade_10:after {
+    background: url("../images/item_grades/item_grade_10.png") no-repeat;
+    background-size: contain;
+}
+
+.item_grade.grade_11:after {
+    background: url("../images/item_grades/item_grade_11.png") no-repeat;
+    background-size: contain;
+}
+
+.item_grade.grade_12:after {
+    background: url("../images/item_grades/item_grade_12.png") no-repeat;
+    background-size: contain;
+}
+
 .grade_color_0 {
     color: #b8966c;
 }
@@ -66,8 +135,8 @@ body {
 
 .item_icon,
 .item_icon img {
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
 }
 
 .item_icon {
@@ -119,10 +188,13 @@ body {
 
     background: #53523f;
     color: #d2c1ad;
-    font-family: "flareserif";
+    font-family: "flareserif", "Helvetica", "serif";
     font-size: 12px;
     line-height: 14px;
     word-spacing: 1px;
+}
+
+.item_tooltip {
     letter-spacing: .2px;
 }
 
@@ -173,8 +245,7 @@ body {
     display: inline-block;
     padding-right: 2px;
 
-    background: url("../images/money_window.png") no-repeat;
-    background-position: -242px -49px;
+    background: url("../images/money_window.png") no-repeat -242px -49px;
 }
 
 .item_tooltip_label_text {

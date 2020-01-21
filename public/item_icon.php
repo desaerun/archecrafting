@@ -1,7 +1,6 @@
 <?php
 
 require_once("../includes/db_connect.php");
-require_once("../includes/functions.inc.php");
 require_once("../includes/config.inc.php");
 
 if (isset($item_id_embed)) {
@@ -32,12 +31,5 @@ if ($item) {
 ?>
 <!--<a href="item.php?id=<?= $item['id'] ?>" class="item_link">-->
 
-<div class="item_icon has_item_tooltip" data-item-id="<?= $item['id'] ?>">
-    <div class="item_image_wrapper">
-        <img src="<?= $item_icon_image ?>"/>
-    </div>
-    <div class="item_grade_wrapper">
-        <img src="<?= $item_grade_image ?>"/>
-    </div>
-</div>
+
 <!--</a>-->

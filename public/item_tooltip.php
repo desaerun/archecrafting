@@ -1,7 +1,6 @@
 <?php
 
 require_once("../includes/db_connect.php");
-require_once("../includes/functions.inc.php");
 require_once("../includes/config.inc.php");
 
 $item_id = (!isset($_GET['item_id'])) ? DEFAULT_ITEM_ID : $_GET['item_id'];

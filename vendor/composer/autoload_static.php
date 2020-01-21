@@ -24,6 +24,7 @@ class ComposerStaticInit9662302d8cbe52ef7d0e589717a5e1b6
         'Core\\Item\\Craft' => __DIR__ . '/../..' . '/src/classes/Core/Item/Craft.php',
         'Core\\Item\\CraftsList' => __DIR__ . '/../..' . '/src/classes/Core/Item/CraftsList.php',
         'Core\\Item\\Item' => __DIR__ . '/../..' . '/src/classes/Core/Item/Item.php',
+        'Core\\Item\\ItemIconList' => __DIR__ . '/../..' . '/src/classes/Core/Item/ItemIconList.php',
         'Core\\Item\\Reagent' => __DIR__ . '/../..' . '/src/classes/Core/Item/Reagent.php',
     );
 
